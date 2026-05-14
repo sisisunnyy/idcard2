@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Image Target AR</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+</head>
+<body style="margin:0;overflow:hidden">
+  <a-scene
+    mindar-image="imageTargetSrc:./targets.mind"
+    color-space="sRGB"
+    renderer="colorManagement:true,physicallyCorrectLights"
+    vr-mode-ui="enabled:false"
+    device-orientation-permission-ui="enabled:false">
+
+    <a-assets></a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled:false"></a-camera>
+
+    <!-- This entity appears when image is detected -->
+    <a-entity mindar-image-target="targetIndex:0">
+
+      <!-- Floating animated text over your target -->
+      <a-text
+        value="Course Name: Social Media Innovation"
+        position="0 0.2 0"
+        scale="0.4 0.4 0.4"
+        color="#CF95C3"
+        align="left"
+        animation="property:position;to:0 0.5 0;dir:alternate;loop:true;dur:1500">
+      </a-text>
+
+       <a-text
+        value="Name: Dujrapee Chaovanapricha"
+        position="0 0.4 0"
+        scale="0.4 0.4 0.4"
+        color="#A195CF"
+        align="left"
+        animation="property:position;to:0 0.5 0;dir:alternate;loop:true;dur:1500">
+      </a-text>
+
+       <a-text
+        value="Valid From: 6-19 May 2026"
+        position="0 0.6 0"
+        scale="0.4 0.4 0.4"
+        color="#A1D4D4"
+        align="left"
+        animation="property:position;to:0 0.5 0;dir:alternate;loop:true;dur:1500">
+      </a-text>
+
+      <!-- Spinning torus ring around the target -->
+      <a-torus
+        position="0 0 0"
+        radius="0.4"
+        radius-tubular="0.03"
+        material="color:#6C63FF;emissive:#6C63FF;opacity:0.7"
+        animation="property:rotation;to:0 360 0;loop:true;dur:2000">
+      </a-torus>
+
+    </a-entity>
+  </a-scene>
+</body>
+</html>
